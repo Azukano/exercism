@@ -51,8 +51,7 @@ defmodule FreelancerRatesTest do
       # 11_052.8
       assert FreelancerRates.monthly_rate(62.8, 0.0) == 11_053
       # 11_475.2
-      # changed the test case right to 11_475 instead of 11_476 corrected rounded value
-      assert FreelancerRates.monthly_rate(65.2, 0.0) == 11_475
+      assert FreelancerRates.monthly_rate(65.2, 0.0) == 11_476
     end
 
     @tag task_id: 3
