@@ -9,9 +9,15 @@ defmodule FreelancerRates do
     before_discount * ( 100 - discount) / 100
   end
 
-  def monthly_rate(hourly_rate, discount) do
+  def monthly_rate(hourly_rate, 0.0) do 
     # Please implement the monthly_rate/2 function
-    daily_rate(hourly_rate) * 22  
+    daily_rate(hourly_rate) * 22 |> Float.round(0) |> round
+  end
+
+  def monthly_rate(hourly_rate, discount) do
+    # for discount applied hourly_rate
+    monthly_rate(hourly_rate, 0.0) |> apply_discount(discount)
+      |> Float.round(0) |> round
   end
 
   def days_in_budget(budget, hourly_rate, discount) do
