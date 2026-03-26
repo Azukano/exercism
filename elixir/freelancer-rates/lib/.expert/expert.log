@@ -1,0 +1,605 @@
+20:16:28.979 [debug] Child {XPLoggerFileBackend, :general_log} of Supervisor Logger.Backends.Supervisor started
+Pid: #PID<0.103.0>
+Start Call: Logger.Backends.Watcher.start_link({{XPLoggerFileBackend, :general_log}, {XPLoggerFileBackend, :general_log}})
+Restart: :transient
+Shutdown: 5000
+Type: :worker
+20:16:28.979 [info] Child Logger.Backends.Supervisor of Supervisor Logger.Backends.Internal started
+Pid: #PID<0.102.0>
+Start Call: Logger.Backends.Supervisor.start_link([{XPLoggerFileBackend, :general_log}])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:28.980 [info] Child Logger.Backends.Internal of Supervisor Logger.Supervisor started
+Pid: #PID<0.98.0>
+Start Call: Logger.Backends.Internal.start_link([])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:28.980 [info] Application logger started at :nonode@nohost
+20:16:28.980 [info] Application xp_mime started at :nonode@nohost
+20:16:28.980 [info] Application xp_hpax started at :nonode@nohost
+20:16:28.980 [info] Application crypto started at :nonode@nohost
+20:16:28.980 [info] Application asn1 started at :nonode@nohost
+20:16:28.980 [info] Application public_key started at :nonode@nohost
+20:16:28.982 [debug] Child :ssl_handler of Supervisor :logger_sup started
+Pid: #PID<0.108.0>
+Start Call: :logger_olp.start_link(:logger_std_h_ssl_handler, :logger_h_common, %{id: :ssl_handler, module: :logger_std_h, config: %{type: :standard_io, filesync_repeat_interval: :no_repeat}, level: :debug, filter_default: :stop, filters: [], formatter: {:ssl_logger, %{}}}, %{})
+Restart: :temporary
+Shutdown: 2000
+Type: :worker
+20:16:28.986 [info] Child :ssl_pem_cache of Supervisor :ssl_admin_sup started
+Pid: #PID<0.112.0>
+Start Call: :ssl_pem_cache.start_link([])
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+20:16:28.989 [info] Child :ssl_manager of Supervisor :ssl_admin_sup started
+Pid: #PID<0.113.0>
+Start Call: :ssl_manager.start_link([])
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+20:16:28.990 [info] Child :tls_client_ticket_store of Supervisor :ssl_admin_sup started
+Pid: #PID<0.114.0>
+Start Call: :tls_client_ticket_store.start_link(1000, 7200)
+Restart: :permanent
+Shutdown: 4000
+Type: :worker
+20:16:28.990 [info] Child :ssl_admin_sup of Supervisor :ssl_sup started
+Pid: #PID<0.111.0>
+Start Call: :ssl_admin_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.993 [info] Child :tls_connection_sup of Supervisor :tls_sup started
+Pid: #PID<0.117.0>
+Start Call: :tls_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.994 [info] Child :ssl_listen_tracker_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.119.0>
+Start Call: :ssl_listen_tracker_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.995 [info] Child :tls_server_session_ticket of Supervisor :tls_server_sup started
+Pid: #PID<0.120.0>
+Start Call: :tls_server_session_ticket_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.996 [info] Child :ssl_server_session_cache_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.121.0>
+Start Call: :ssl_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.996 [info] Child :ssl_upgrade_server_session_cache_sup of Supervisor :tls_server_sup started
+Pid: #PID<0.122.0>
+Start Call: :ssl_upgrade_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.997 [info] Child :tls_server_sup of Supervisor :tls_sup started
+Pid: #PID<0.118.0>
+Start Call: :tls_server_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.997 [info] Child :tls_sup of Supervisor :ssl_connection_sup started
+Pid: #PID<0.116.0>
+Start Call: :tls_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.998 [info] Child :dtls_connection_sup of Supervisor :dtls_sup started
+Pid: #PID<0.124.0>
+Start Call: :dtls_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:28.999 [info] Child :dtls_listener_sup of Supervisor :dtls_server_sup started
+Pid: #PID<0.126.0>
+Start Call: :dtls_listener_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:29.000 [info] Child :dtls_server_session_cache_sup of Supervisor :dtls_server_sup started
+Pid: #PID<0.127.0>
+Start Call: :dtls_server_session_cache_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:29.000 [info] Child :dtls_server_sup of Supervisor :dtls_sup started
+Pid: #PID<0.125.0>
+Start Call: :dtls_server_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:29.000 [info] Child :dtls_sup of Supervisor :ssl_connection_sup started
+Pid: #PID<0.123.0>
+Start Call: :dtls_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:29.001 [info] Child :ssl_connection_sup of Supervisor :ssl_sup started
+Pid: #PID<0.115.0>
+Start Call: :ssl_connection_sup.start_link()
+Restart: :permanent
+Shutdown: 4000
+Type: :supervisor
+20:16:29.001 [info] Application ssl started at :nonode@nohost
+20:16:29.001 [info] Application xp_mint started at :nonode@nohost
+20:16:29.002 [info] Application xp_nimble_options started at :nonode@nohost
+20:16:29.004 [info] Child XPNimblePool.TaskSupervisor of Supervisor #PID<0.133.0> (Supervisor.Default) started
+Pid: #PID<0.134.0>
+Start Call: Task.Supervisor.start_link([name: XPNimblePool.TaskSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.005 [info] Application xp_nimble_pool started at :nonode@nohost
+20:16:29.007 [info] Child :telemetry_handler_table of Supervisor :telemetry_sup started
+Pid: #PID<0.138.0>
+Start Call: :telemetry_handler_table.start_link()
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.007 [info] Application xp_telemetry started at :nonode@nohost
+20:16:29.007 [info] Application xp_finch started at :nonode@nohost
+20:16:29.021 [info] Child XPReq.Finch.PIDPartition0 of Supervisor XPReq.Finch started
+Pid: #PID<0.144.0>
+Start Call: Registry.Partition.start_link(XPReq.Finch.PIDPartition0, {{:duplicate, :pid}, XPReq.Finch, 0, 1, XPReq.Finch.KeyPartition0, XPReq.Finch.PIDPartition0, [], false})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.021 [info] Child XPReq.Finch of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.143.0>
+Start Call: Registry.start_link([keys: :duplicate, name: XPReq.Finch, meta: [config: %{pools: %{}, registry_name: XPReq.Finch, supervisor_name: XPReq.Finch.PoolSupervisor, manager_name: XPReq.Finch.PoolManager, default_pool_config: %{count: 1, size: 50, mod: XPFinch.HTTP1.Pool, conn_opts: [protocols: [:http1], transport_opts: [keepalive: true, nodelay: true, timeout: 5000], ssl_key_log_file_device: nil], pool_max_idle_time: :infinity, conn_max_idle_time: :infinity, start_pool_metrics?: false}}]])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.022 [info] Child XPReq.Finch.PoolSupervisor of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.145.0>
+Start Call: DynamicSupervisor.start_link([name: XPReq.Finch.PoolSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.022 [info] Child XPFinch.PoolManager of Supervisor XPReq.Finch.Supervisor started
+Pid: #PID<0.146.0>
+Start Call: XPFinch.PoolManager.start_link(%{pools: %{}, registry_name: XPReq.Finch, supervisor_name: XPReq.Finch.PoolSupervisor, manager_name: XPReq.Finch.PoolManager, default_pool_config: %{count: 1, size: 50, mod: XPFinch.HTTP1.Pool, conn_opts: [protocols: [:http1], transport_opts: [keepalive: true, nodelay: true, timeout: 5000], ssl_key_log_file_device: nil], pool_max_idle_time: :infinity, conn_max_idle_time: :infinity, start_pool_metrics?: false}})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.022 [info] Child XPReq.Finch of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.142.0>
+Start Call: XPFinch.start_link([name: XPReq.Finch, pools: %{default: [protocols: [:http1]]}])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.022 [info] Child XPReq.FinchSupervisor of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.147.0>
+Start Call: DynamicSupervisor.start_link([strategy: :one_for_one, name: XPReq.FinchSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.022 [info] Child XPReq.Test.Ownership of Supervisor #PID<0.141.0> (Supervisor.Default) started
+Pid: #PID<0.148.0>
+Start Call: XPReq.Test.Ownership.start_link([name: XPReq.Test.Ownership])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.022 [info] Application xp_req started at :nonode@nohost
+20:16:29.022 [info] Application burrito started at :nonode@nohost
+20:16:29.022 [info] Application xp_schematic started at :nonode@nohost
+20:16:29.022 [info] Application xp_typed_struct started at :nonode@nohost
+20:16:29.022 [info] Application xp_gen_lsp started at :nonode@nohost
+20:16:29.028 [info] Child XPSnowflake.Generator of Supervisor #PID<0.151.0> (Supervisor.Default) started
+Pid: #PID<0.152.0>
+Start Call: XPSnowflake.Generator.start_link(0, 1023)
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.028 [info] Application xp_snowflake started at :nonode@nohost
+20:16:29.029 [info] Application xp_sourceror started at :nonode@nohost
+20:16:29.029 [info] Application xp_forge started at :nonode@nohost
+20:16:29.029 [info] Application xp_logger_file_backend started at :nonode@nohost
+20:16:29.032 [info] Child :ttb_autostart of Supervisor :runtime_tools_sup started
+Pid: #PID<0.156.0>
+Start Call: :ttb_autostart.start_link()
+Restart: :temporary
+Shutdown: 3000
+Type: :worker
+20:16:29.032 [info] Application runtime_tools started at :nonode@nohost
+20:16:29.032 [info] Application et started at :nonode@nohost
+20:16:29.032 [info] Application observer started at :nonode@nohost
+20:16:29.032 [info] Application xp_path_glob started at :nonode@nohost
+20:16:29.041 [info] Starting NodePortMapper on nonode@nohost
+20:16:29.041 [info] Child XPForge.NodePortMapper of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.160.0>
+Start Call: XPForge.NodePortMapper.start_link([])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.042 [info] Child XPForge.Document.Store of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.161.0>
+Start Call: XPForge.Document.Store.start_link([derive: [analysis: &XPForge.Ast.analyze/1]])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.044 [info] Child XPExpert.ProjectSupervisor of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.162.0>
+Start Call: DynamicSupervisor.start_link([name: XPExpert.ProjectSupervisor, strategy: :one_for_one])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.044 [info] Child XPExpert.DynamicSupervisor of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.163.0>
+Start Call: DynamicSupervisor.start_link([name: XPExpert.DynamicSupervisor])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.045 [info] Child XPGenLSP.Assigns of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.164.0>
+Start Call: XPGenLSP.Assigns.start_link([name: XPExpert.Assigns])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.045 [info] Child :expert_task_queue of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.165.0>
+Start Call: Task.Supervisor.start_link([name: :expert_task_queue])
+Restart: :permanent
+Shutdown: :infinity
+Type: :supervisor
+20:16:29.046 [info] Child XPGenLSP.Buffer of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.166.0>
+Start Call: XPGenLSP.Buffer.start_link([name: XPExpert.Buffer])
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.046 [debug] [name: XPExpert, buffer: XPExpert.Buffer, task_supervisor: :expert_task_queue, dynamic_supervisor: XPExpert.DynamicSupervisor, assigns: XPExpert.Assigns]
+20:16:29.050 [info] Child XPExpert of Supervisor XPExpert.Supervisor started
+Pid: #PID<0.167.0>
+Start Call: XPExpert.start_link([name: XPExpert, buffer: XPExpert.Buffer, task_supervisor: :expert_task_queue, dynamic_supervisor: XPExpert.DynamicSupervisor, assigns: XPExpert.Assigns])
+Restart: :permanent
+Shutdown: 500
+Type: :worker
+20:16:29.050 [info] Application xp_expert started at :nonode@nohost
+20:16:29.157 [debug] handled request client -> server initialize in 100ms
+20:16:29.162 [debug] sent request server -> client client/registerCapability
+20:16:29.167 [info] Opened file:///home/goku/exercism/elixir/freelancer-rates/lib/freelancer_rates.ex
+20:16:29.167 [debug] handled notification client -> server textDocument/didOpen in 7ms
+20:16:29.170 [info] [Project file:///home/goku/exercism/elixir/freelancer-rates] Starting project
+20:16:29.171 [debug] sent notification server -> client window/logMessage
+20:16:29.177 [info] Child {XPExpert.EngineSupervisor, "freelancer_rates"} of Supervisor :"freelancer_rates::supervisor" started
+Pid: #PID<0.174.0>
+Start Call: XPExpert.EngineSupervisor.start_link(%XPForge.Project{root_uri: "file:///home/goku/exercism/elixir/freelancer-rates", mix_exs_uri: "file:///home/goku/exercism/elixir/freelancer-rates/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 60103})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:29.179 [debug] sent request server -> client window/workDoneProgress/create
+20:16:29.194 [debug] handled notification client -> server initialized in 34ms
+20:16:29.194 [debug] sent notification server -> client $/progress
+20:16:29.199 [info] Child XPForge.EPMD of Supervisor :net_sup started
+Pid: #PID<0.177.0>
+Start Call: XPForge.EPMD.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+20:16:29.200 [info] Child :auth of Supervisor :net_sup started
+Pid: #PID<0.178.0>
+Start Call: :auth.start_link()
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+20:16:29.209 [info] Child :net_kernel of Supervisor :net_sup started
+Pid: #PID<0.179.0>
+Start Call: :net_kernel.start_link(%{name: :"expert-manager-freelancer_rates-60103@127.0.0.1", supervisor: :net_sup_dynamic, net_tickintensity: 4, net_ticktime: 60, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 2000
+Type: :worker
+20:16:29.209 [debug] Child :net_sup_dynamic of Supervisor :kernel_sup started
+Pid: #PID<0.176.0>
+Start Call: :erl_distribution.start_link(%{name: :"expert-manager-freelancer_rates-60103@127.0.0.1", supervisor: :net_sup_dynamic, net_tickintensity: 4, net_ticktime: 60, name_domain: :longnames, clean_halt: false})
+Restart: :permanent
+Shutdown: 1000
+Type: :supervisor
+20:16:29.392 [info] [Project file:///home/goku/exercism/elixir/freelancer-rates] Found elixir executable at /home/goku/.asdf/shims/elixir
+20:16:29.392 [debug] sent notification server -> client window/logMessage
+20:16:29.393 [info] [Project file:///home/goku/exercism/elixir/freelancer-rates] Finding or building engine
+20:16:29.393 [debug] sent notification server -> client window/logMessage
+20:16:29.393 [debug] sent request server -> client window/workDoneProgress/create
+20:16:29.393 [debug] sent notification server -> client $/progress
+20:16:30.573 [debug] Building engine: * creating /home/goku/.asdf/installs/elixir/1.19.4/.mix/archives/hex-2.4.1-otp-28
+
+20:16:31.022 [debug] Building engine: * creating /home/goku/.asdf/installs/elixir/1.19.4/.mix/elixir/1-19-otp-28/rebar3
+
+20:16:33.177 [debug] Building engine: Rewriting 20 app files
+
+20:16:33.216 [debug] Building engine: Rewriting .beam files
+
+20:16:33.263 [debug] Building engine:  Found 0 protocols
+ Found 1640 app beam files
+
+20:16:33.279 [debug] Building engine: 
+20:16:33.280 [debug] Building engine: Applying namespace:   0% complete
+20:16:33.346 [debug] Building engine: 
+20:16:33.346 [debug] Building engine: Applying namespace:   2% complete
+20:16:33.412 [debug] Building engine: 
+20:16:33.414 [debug] Building engine: Applying namespace:   4% complete
+20:16:33.482 [debug] Building engine: 
+20:16:33.482 [debug] Building engine: Applying namespace:   5% complete
+20:16:33.549 [debug] Building engine: 
+20:16:33.549 [debug] Building engine: Applying namespace:   6% complete
+20:16:33.616 [debug] Building engine: 
+20:16:33.617 [debug] Building engine: Applying namespace:   7% complete
+20:16:33.686 [debug] Building engine: 
+20:16:33.687 [debug] Building engine: Applying namespace:   8% complete
+20:16:33.759 [debug] Building engine: 
+20:16:33.760 [debug] Building engine: Applying namespace:   9% complete
+20:16:33.827 [debug] Building engine: 
+20:16:33.828 [debug] Building engine: Applying namespace:  10% complete
+20:16:33.895 [debug] Building engine: 
+20:16:33.896 [debug] Building engine: Applying namespace:  10% complete
+20:16:33.961 [debug] Building engine: 
+20:16:33.962 [debug] Building engine: Applying namespace:  11% complete
+20:16:34.038 [debug] Building engine: 
+20:16:34.038 [debug] Building engine: Applying namespace:  12% complete
+20:16:34.107 [debug] Building engine: 
+20:16:34.109 [debug] Building engine: Applying namespace:  13% complete
+20:16:34.174 [debug] Building engine: 
+20:16:34.175 [debug] Building engine: Applying namespace:  14% complete
+20:16:34.243 [debug] Building engine: Applying namespace:  15% complete
+20:16:34.308 [debug] Building engine: 
+20:16:34.310 [debug] Building engine: Applying namespace:  16% complete
+20:16:34.399 [debug] Building engine: 
+20:16:34.399 [debug] Building engine: Applying namespace:  17% complete
+20:16:34.464 [debug] Building engine: 
+20:16:34.466 [debug] Building engine: Applying namespace:  17% complete
+20:16:34.560 [debug] Building engine: 
+20:16:34.561 [debug] Building engine: Applying namespace:  17% complete
+20:16:34.641 [debug] Building engine: 
+20:16:34.641 [debug] Building engine: Applying namespace:  18% complete
+20:16:34.727 [debug] Building engine: 
+20:16:34.729 [debug] Building engine: Applying namespace:  18% complete
+20:16:34.796 [debug] Building engine: Applying namespace:  18% complete
+20:16:34.865 [debug] Building engine: Applying namespace:  20% complete
+20:16:34.933 [debug] Building engine: 
+20:16:34.934 [debug] Building engine: Applying namespace:  20% complete
+20:16:35.004 [debug] Building engine: 
+20:16:35.005 [debug] Building engine: Applying namespace:  21% complete
+20:16:35.073 [debug] Building engine: Applying namespace:  22% complete
+20:16:35.139 [debug] Building engine: Applying namespace:  23% complete
+20:16:35.216 [debug] Building engine: Applying namespace:  24% complete
+20:16:35.288 [debug] Building engine: Applying namespace:  25% complete
+20:16:35.351 [debug] Building engine: 
+20:16:35.352 [debug] Building engine: Applying namespace:  27% complete
+20:16:35.418 [debug] Building engine: 
+20:16:35.419 [debug] Building engine: Applying namespace:  28% complete
+20:16:35.485 [debug] Building engine: 
+20:16:35.485 [debug] Building engine: Applying namespace:  30% complete
+20:16:35.551 [debug] Building engine: 
+20:16:35.552 [debug] Building engine: Applying namespace:  33% complete
+20:16:35.618 [debug] Building engine: 
+20:16:35.619 [debug] Building engine: Applying namespace:  35% complete
+20:16:35.686 [debug] Building engine: Applying namespace:  40% complete
+20:16:35.751 [debug] Building engine: 
+20:16:35.751 [debug] Building engine: Applying namespace:  45% complete
+20:16:35.817 [debug] Building engine: 
+20:16:35.818 [debug] Building engine: Applying namespace:  50% complete
+20:16:35.883 [debug] Building engine: 
+20:16:35.888 [debug] Building engine: Applying namespace:  56% complete
+20:16:35.949 [debug] Building engine: 
+20:16:35.950 [debug] Building engine: Applying namespace:  62% complete
+20:16:36.016 [debug] Building engine: 
+20:16:36.016 [debug] Building engine: Applying namespace:  68% complete
+20:16:36.082 [debug] Building engine: Applying namespace:  75% complete
+20:16:36.147 [debug] Building engine: 
+20:16:36.148 [debug] Building engine: Applying namespace:  83% complete
+20:16:36.216 [debug] Building engine: Applying namespace:  91% complete
+20:16:36.280 [debug] Building engine: 
+20:16:36.282 [debug] Building engine: Applying namespace:  93% complete
+20:16:36.346 [debug] Building engine: 
+20:16:36.346 [debug] Building engine: Applying namespace:  94% complete
+20:16:36.467 [debug] Building engine: 
+20:16:36.469 [debug] Building engine: Applying namespace:  94% complete
+20:16:36.541 [debug] Building engine: 
+20:16:36.541 [debug] Building engine: Applying namespace:  95% complete
+20:16:36.614 [debug] Building engine: 
+20:16:36.614 [debug] Building engine: Applying namespace:  96% complete
+20:16:36.681 [debug] Building engine: 
+20:16:36.681 [debug] Building engine: Applying namespace:  97% complete
+20:16:36.748 [debug] Building engine: 
+20:16:36.750 [debug] Building engine: Applying namespace:  98% complete
+20:16:36.833 [debug] Building engine: 
+20:16:36.833 [debug] Building engine: Applying namespace:  99% complete
+20:16:36.928 [debug] Building engine: Applying namespace:  99% complete
+20:16:37.177 [debug] Building engine: Applying namespace:  99% complete
+20:16:39.321 [debug] Building engine: 
+20:16:39.321 [debug] Building engine: Applying namespace: 100% complete
+20:16:39.321 [debug] Building engine: 
+ done
+
+20:16:39.334 [debug] Building engine: Rewriting 0 scripts
+
+20:16:39.339 [debug] Building engine: Rebuilding 0 boot files
+
+20:16:39.363 [debug] Building engine: Rewriting 0 config scripts.
+
+20:16:39.366 [info] Engine build available at: /home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns
+20:16:39.479 [info] ebin paths:
+["/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/mix_install/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/patch/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_bunt/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_credo/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_deps_nix/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_elixir_sense/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_engine/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_file_system/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_forge/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_gen_lsp/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_hpax/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_jason/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_mint/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_nimble_options/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_nimble_parsec/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_path_glob/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_refactorex/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_schematic/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_snowflake/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_sourceror/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_telemetry/ebin",
+ "/home/goku/.local/share/Expert/0.1.0/ex-1.19.4-erl-16.1.2/QyWGvhFpwkDJFYoA-rLmqw/_build/dev_ns/lib/xp_typed_struct/ebin"]
+20:16:39.587 [debug] sent notification server -> client $/progress
+20:16:39.589 [debug] sent notification server -> client $/progress
+20:16:40.030 [debug] sent notification server -> client $/progress
+20:16:40.033 [debug] Node port message: ok
+
+20:16:40.189 [debug] Node port message: 
+20:16:40.181 [notice] Application mix exited: :stopped
+
+20:16:40.205 [debug] Node port message:     warning: redefining module FreelancerRates.MixProject (current version defined in memory)
+    â
+  1 â defmodule FreelancerRates.MixProject do
+    â ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    â
+    ââ /home/goku/exercism/elixir/freelancer-rates/mix.exs:1: FreelancerRates.MixProject (module)
+
+
+20:16:40.212 [debug] sent notification server -> client $/progress
+20:16:40.212 [debug] sent notification server -> client $/progress
+20:16:40.218 [debug] sent notification server -> client $/progress
+20:16:40.329 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.330 [debug] sent notification server -> client $/progress
+20:16:40.331 [debug] sent notification server -> client $/progress
+20:16:40.331 [info] Child {XPExpert.Project.Node, "freelancer_rates"} of Supervisor :"freelancer_rates::supervisor" started
+Pid: #PID<0.175.0>
+Start Call: XPExpert.Project.Node.start_link(%XPForge.Project{root_uri: "file:///home/goku/exercism/elixir/freelancer-rates", mix_exs_uri: "file:///home/goku/exercism/elixir/freelancer-rates/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 60103})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:40.333 [info] Child {XPExpert.Project.Diagnostics, "freelancer_rates"} of Supervisor :"freelancer_rates::supervisor" started
+Pid: #PID<0.209.0>
+Start Call: XPExpert.Project.Diagnostics.start_link(%XPForge.Project{root_uri: "file:///home/goku/exercism/elixir/freelancer-rates", mix_exs_uri: "file:///home/goku/exercism/elixir/freelancer-rates/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 60103})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:40.335 [info] Child {XPExpert.Project.Intelligence, "freelancer_rates"} of Supervisor :"freelancer_rates::supervisor" started
+Pid: #PID<0.210.0>
+Start Call: XPExpert.Project.Intelligence.start_link(%XPForge.Project{root_uri: "file:///home/goku/exercism/elixir/freelancer-rates", mix_exs_uri: "file:///home/goku/exercism/elixir/freelancer-rates/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 60103})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:40.336 [info] Child XPExpert.Project.SearchListener of Supervisor :"freelancer_rates::supervisor" started
+Pid: #PID<0.211.0>
+Start Call: XPExpert.Project.SearchListener.start_link(%XPForge.Project{root_uri: "file:///home/goku/exercism/elixir/freelancer-rates", mix_exs_uri: "file:///home/goku/exercism/elixir/freelancer-rates/mix.exs", mix_project?: true, mix_env: nil, mix_target: nil, env_variables: %{}, project_module: nil, entropy: 60103})
+Restart: :permanent
+Shutdown: 5000
+Type: :worker
+20:16:40.336 [info] Engine initialized
+20:16:40.394 [debug] Node port message: 
+20:16:40.394 [info] Building freelancer-rates
+
+20:16:40.394 [debug] sent request server -> client window/workDoneProgress/create
+20:16:40.395 [debug] Node port message: 
+20:16:40.394 [debug] sent request server -> client window/workDoneProgress/create
+
+20:16:40.395 [debug] sent notification server -> client $/progress
+20:16:40.395 [debug] Node port message: 
+20:16:40.395 [debug] sent notification server -> client $/progress
+
+20:16:40.414 [debug] sent notification server -> client $/progress
+20:16:40.414 [debug] Node port message: 
+20:16:40.414 [debug] sent notification server -> client $/progress
+
+20:16:41.016 [debug] Node port message: * creating /home/goku/.asdf/installs/elixir/1.19.4/.mix/archives/hex-2.4.1-otp-28
+
+20:16:41.016 [debug] sent notification server -> client $/progress
+20:16:41.017 [debug] Node port message: 
+20:16:41.016 [debug] sent notification server -> client $/progress
+
+20:16:41.471 [debug] Node port message: * creating /home/goku/.asdf/installs/elixir/1.19.4/.mix/elixir/1-19-otp-28/rebar3
+
+20:16:41.471 [debug] sent notification server -> client $/progress
+20:16:41.472 [debug] Node port message: 
+20:16:41.471 [debug] sent notification server -> client $/progress
+
+20:16:41.488 [debug] Node port message: All dependencies have been fetched
+
+20:16:41.493 [debug] sent notification server -> client $/progress
+20:16:41.493 [debug] Node port message: 
+20:16:41.493 [debug] sent notification server -> client $/progress
+
+20:16:41.495 [debug] sent notification server -> client $/progress
+20:16:41.496 [debug] Node port message: 
+20:16:41.495 [debug] sent notification server -> client $/progress
+
+20:16:41.498 [debug] sent notification server -> client $/progress
+20:16:41.498 [debug] Node port message: 
+20:16:41.498 [info] Loaded []
+
+20:16:41.499 [debug] Node port message: 
+20:16:41.498 [debug] sent notification server -> client $/progress
+
+20:16:41.531 [debug] Node port message: Compiling 1 file (.ex)
+
+20:16:41.546 [debug] sent notification server -> client $/progress
+20:16:41.547 [debug] Node port message: 
+20:16:41.546 [debug] sent notification server -> client $/progress
+
+20:16:41.556 [debug] Node port message: Generated freelancer_rates app
+
+20:16:41.560 [debug] Node port message: 
+20:16:41.559 [info] Compile completed with status ok Produced 0 diagnostics []
+
+20:16:41.562 [debug] sent notification server -> client $/progress
+20:16:41.562 [debug] Node port message: 
+20:16:41.562 [debug] sent notification server -> client $/progress
+
+20:16:41.564 [info] Compiled freelancer_rates in 1.2 seconds
+20:16:41.567 [debug] Node port message: 
+20:16:41.567 [info] Plugins found 0 results in 0.006 ms
+
+20:16:41.584 [debug] Node port message: 
+20:16:41.584 [notice] disk_log: repairing ~c"/home/goku/exercism/elixir/freelancer-rates/.expert/indexes/ets/28.2/1.19.4/3/updates.wal" ...
+
+
+20:16:41.608 [debug] Node port message: 
+20:16:41.608 [info] backend reports stale
+
+20:16:41.621 [debug] sent request server -> client window/workDoneProgress/create
+20:16:41.622 [debug] sent notification server -> client $/progress
+20:16:41.622 [debug] Node port message: 
+20:16:41.621 [debug] sent request server -> client window/workDoneProgress/create
+
+20:16:41.622 [debug] Node port message: 
+20:16:41.622 [debug] sent notification server -> client $/progress
+
+20:16:41.626 [debug] sent notification server -> client $/progress
+20:16:41.626 [debug] Node port message: 
+20:16:41.626 [debug] sent notification server -> client $/progress
+
+20:16:41.745 [debug] sent notification server -> client $/progress
+20:16:41.745 [debug] Node port message: 
+20:16:41.745 [debug] sent notification server -> client $/progress
+
+20:17:00.633 [debug] sent notification server -> client window/logMessage
+20:17:00.633 [info] Shutting down
+20:17:00.633 [debug] handled request client -> server shutdown in 2ms
